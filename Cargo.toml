@@ -1,0 +1,18 @@
+[package]
+name = "diesel-duckdb"
+description = "A DuckDB database adapter for diesel"
+version = "0.1.0"
+keywords = ["diesel", "duckdb", "orm", "sql"]
+categories = ["database"]
+edition = "2024"
+authors = ["Christopher Mühl <christopher@muehl.dev>"]
+repository = "https://github.com/padarom/diesel-duckdb"
+documentation = "https://docs.rs/diesel-duckdb"
+
+[dependencies]
+duckdb = "1.3.2"
+
+[dependencies.diesel]
+default-features = false
+features = ["i-implement-a-third-party-backend-and-opt-into-breaking-changes"]
+version = "~2.2.0"
