@@ -2,11 +2,15 @@ use diesel::query_builder::QueryBuilder;
 use diesel::QueryResult;
 use crate::DuckDB;
 
-pub struct DuckDBQueryBuilder;
+#[derive(Default)]
+pub struct DuckDBQueryBuilder {
+    sql: String,
+    bind_idx: u32,
+}
 
 impl QueryBuilder<DuckDB> for DuckDBQueryBuilder {
     fn push_sql(&mut self, sql: &str) {
-        todo!()
+        self.sql.push_str(sql);
     }
 
     fn push_identifier(&mut self, identifier: &str) -> QueryResult<()> {
@@ -22,6 +26,6 @@ impl QueryBuilder<DuckDB> for DuckDBQueryBuilder {
     }
 
     fn finish(self) -> String {
-        todo!()
+        self.sql
     }
 }

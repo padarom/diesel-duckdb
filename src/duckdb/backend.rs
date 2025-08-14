@@ -1,4 +1,4 @@
-use diesel::backend::{Backend, SqlDialect, TrustedBackend};
+use diesel::backend::{Backend, DieselReserveSpecialization, SqlDialect, TrustedBackend};
 use diesel::query_builder::bind_collector::RawBytesBindCollector;
 use diesel::sql_types::TypeMetadata;
 use crate::duckdb::query_builder::DuckDBQueryBuilder;
@@ -9,6 +9,8 @@ use crate::DuckDBTypeMetadata;
 pub struct DuckDB;
 
 impl TrustedBackend for DuckDB {}
+impl DieselReserveSpecialization for DuckDB {}
+
 impl Backend for DuckDB {
     type QueryBuilder = DuckDBQueryBuilder;
     type RawValue<'a> = DuckDBRawValue<'a>;
