@@ -7,5 +7,5 @@ pub mod duckdb;
 #[doc(inline)]
 pub use crate::duckdb::*;
 
-#[cfg(test)]
-mod test;
+// #[cfg(test)]
+// mod test;

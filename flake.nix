@@ -25,7 +25,7 @@
         };
       in
         with pkgs; {
-         # formatter = alejandra;
+          formatter = alejandra;
 
           devShells.default = mkShell {
             RUST_SRC_PATH = "${rust.packages.stable.rustPlatform.rustLibSrc}";
@@ -42,7 +42,6 @@
               (rust-bin.stable.latest.rust.override {
                 extensions = ["rust-src"];
               })
-              dbus
             ];
           };
         }
